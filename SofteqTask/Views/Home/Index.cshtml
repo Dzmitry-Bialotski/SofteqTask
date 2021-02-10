@@ -1,0 +1,26 @@
+﻿@model SofteqTask.Models.TaskModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form asp-action="Solve" asp-controller="Home" asp-antiforgery="true">
+        <div>
+            <div>
+                <label asp-for="InputString"></label>
+                <input type="text" asp-for="InputString" />
+            </div>
+            <div>
+                <label asp-for="Number"></label>
+                <select asp-for="Number" asp-items="ViewBag.Numbers"></select>
+            </div>
+            <div>
+                <input type="submit" value="Solve" />
+            </div>
+        </div>
+    </form>
+    @if(Model != null)
+    {
+        <div class="text-success">Result: @Model.Result</div>
+    }
+</div>
